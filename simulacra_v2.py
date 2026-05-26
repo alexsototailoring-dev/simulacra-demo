@@ -204,24 +204,24 @@ def run_simulation(edge_penalty=0.0):
 
     
 
-frames = []
-first_size = None
+    frames = []
+    first_size = None
 
-for filename in sorted(glob.glob("frame_*.png")):
-    img = Image.open(filename).convert("RGB")
+    for filename in sorted(glob.glob("frame_*.png")):
+        img = Image.open(filename).convert("RGB")
 
-    if first_size is None:
-        first_size = img.size
-    else:
-        img = img.resize(first_size)
+        if first_size is None:
+            first_size = img.size
+        else:
+            img = img.resize(first_size)
 
-    frames.append(np.array(img))
+        frames.append(np.array(img))
 
-imageio.mimsave(gif_path, frames, duration=0.06)
+    imageio.mimsave(gif_path, frames, duration=0.06)
 
-return gif_path, {
-    "total_movement": round(distances.mean(), 2),
-    "border_time": congestion_delay,
-    "interaction_points": conflict_events,
-    "tasks_completed": tasks_completed
-}
+    return gif_path, {
+        "total_movement": round(distances.mean(), 2),
+        "border_time": congestion_delay,
+        "interaction_points": conflict_events,
+        "tasks_completed": tasks_completed
+    }
