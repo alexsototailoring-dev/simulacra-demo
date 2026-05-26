@@ -223,5 +223,5 @@ return gif_path, {
     "total_movement": round(distances.mean(), 2),
     "border_time": congestion_delay,
     "interaction_points": conflict_events,
-        "tasks_completed": tasks_completed
+    "tasks_completed": tasks_completed
 }
