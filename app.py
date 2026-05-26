@@ -1,4 +1,3 @@
-  GNU nano 8.4                                                                        app.py                                                                                  
 import streamlit as st
 import os
 from simulacra_v2 import run_simulation
