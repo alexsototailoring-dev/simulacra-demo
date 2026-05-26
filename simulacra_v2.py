@@ -199,8 +199,15 @@ def run_simulation(edge_penalty=0.0):
         plt.savefig(f"frame_{t:03d}.png", dpi=120, facecolor="#121216")
         plt.close()
 
-    gif_path = f"simulacra_edge_{edge_penalty}.gif"
-    os.system(f"convert -delay 6 -loop 0 frame_*.png {gif_path}")
+    gif_path = os.path.join(os.getcwd(), f"simulacra_edge_{edge_penalty}.gif")
+
+    import imageio.v2 as imageio
+
+    frames = []
+    for filename in sorted(glob.glob("frame_*.png")):
+    frames.append(imageio.imread(filename))
+
+    imageio.mimsave(gif_path, frames, duration=0.06)
 
     return gif_path, {
         "total_movement": round(distances.mean(), 2),
