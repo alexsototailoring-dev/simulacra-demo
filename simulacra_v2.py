@@ -201,11 +201,9 @@ def run_simulation(edge_penalty=0.0):
 
     gif_path = os.path.join(os.getcwd(), f"simulacra_edge_{edge_penalty}.gif")
 
-    
-
     frames = []
     for filename in sorted(glob.glob("frame_*.png")):
-    frames.append(imageio.imread(filename))
+        frames.append(imageio.imread(filename))
 
     imageio.mimsave(gif_path, frames, duration=0.06)
 
