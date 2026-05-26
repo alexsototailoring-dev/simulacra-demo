@@ -219,9 +219,9 @@ for filename in sorted(glob.glob("frame_*.png")):
 
 imageio.mimsave(gif_path, frames, duration=0.06)
 
-    return gif_path, {
-        "total_movement": round(distances.mean(), 2),
-        "border_time": congestion_delay,
-        "interaction_points": conflict_events,
+return gif_path, {
+    "total_movement": round(distances.mean(), 2),
+    "border_time": congestion_delay,
+    "interaction_points": conflict_events,
         "tasks_completed": tasks_completed
-    }
+}
