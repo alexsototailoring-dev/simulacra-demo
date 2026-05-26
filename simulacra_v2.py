@@ -3,6 +3,7 @@ import glob
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as imageio
+from PIL import Image
 
 def run_simulation(edge_penalty=0.0):
     print("EDGE PENALTY RECEIVED:", edge_penalty)
@@ -201,7 +202,7 @@ def run_simulation(edge_penalty=0.0):
 
     gif_path = os.path.join(os.getcwd(), f"simulacra_edge_{edge_penalty}.gif")
 
-    from PIL import Image
+    
 
 frames = []
 first_size = None
