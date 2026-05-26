@@ -1,4 +1,3 @@
-  GNU nano 8.4                                                                                   simulacra_v2.py                                                                                            
 import os
 import glob
 import numpy as np
