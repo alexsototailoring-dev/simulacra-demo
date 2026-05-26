@@ -38,7 +38,7 @@ with center:
         with st.spinner("Running simulation..."):
             gif_path, metrics = run_simulation(edge_penalty=edge_penalty)
         with open(gif_path, "rb") as file:
-    gif_bytes = file.read()
+            gif_bytes = file.read()
 
         st.image(gif_bytes, use_container_width=True)
     else:
