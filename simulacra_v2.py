@@ -201,11 +201,22 @@ def run_simulation(edge_penalty=0.0):
 
     gif_path = os.path.join(os.getcwd(), f"simulacra_edge_{edge_penalty}.gif")
 
-    frames = []
-    for filename in sorted(glob.glob("frame_*.png")):
-        frames.append(imageio.imread(filename))
+    from PIL import Image
 
-    imageio.mimsave(gif_path, frames, duration=0.06)
+frames = []
+first_size = None
+
+for filename in sorted(glob.glob("frame_*.png")):
+    img = Image.open(filename).convert("RGB")
+
+    if first_size is None:
+        first_size = img.size
+    else:
+        img = img.resize(first_size)
+
+    frames.append(np.array(img))
+
+imageio.mimsave(gif_path, frames, duration=0.06)
 
     return gif_path, {
         "total_movement": round(distances.mean(), 2),
